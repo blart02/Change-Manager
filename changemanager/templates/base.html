@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{% block title %}{% endblock title %} | Concern Change Manager</title>
+    {% block head_favicon %}
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/favicon.ico"
+    {% endblock head_favicon %}
+
+    {% block head_meta %}
+        
+        {% block head_meta_charset %}
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% endblock head_meta_charset %}
+
+        {% block head_meta_contentlanguage %}
+            <meta http-equiv="Content-Language" value="en-US" />
+        {% endblock head_meta_contentlanguage %}
+
+        {% block head_meta_viewport %}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        {% endblock head_meta_viewport %}
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    {% endblock head_meta %}
+    <link rel="stylesheet" href="{% static "css/pico/pico.classless.min.css" %}">
+</head>
+<body>
+    <nav style="padding-left: 2%; padding-right:2%;">
+        <ul>
+            <li><strong><a href="{% url 'change-list' %}">Concern Change Manager</a></strong></li>
+        </ul>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'change-list' %}">Changes</a></li>
+                <li><a href="{% url 'requestor-list' %}">Requestors</a></li>
+                <li><a href="{% url 'service-list' %}">Services</a></li>
+                <li><a onclick="if(confirm('Are you sure you want to logout?')){window.location='accounts/logout';}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Register</a></li>
+            {% endif %}
+        </ul>
+
+    </nav>
+
+    <main class="container">
+        
+        {% block content %}
+            Error. No content passed!
+        {% endblock content %}
+            
+    </main>
+
+</body>
+
+</html>

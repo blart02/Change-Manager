@@ -1,0 +1,35 @@
+
+{% extends 'detail-page.html' %}
+
+{% block edit-button %}
+<button onclick="window.location='{{object.id}}/edit'">Edit Requestor</button>
+{% endblock edit-button %}
+
+{% block delete-button %}
+<button onclick="window.location='{{object.id}}/delete'">Delete Requestor</button>
+{% endblock delete-button %}
+
+{% block table %}
+<table>
+    <tr>
+        <td> Name </td>
+        <td> {{object.name}} </td>
+    </tr>
+    <tr>
+        <td> Is Approver? </td>
+        <td> {{object.is_approver_str}} </td>
+    </tr>
+    <tr>
+        <td> Contact Number </td>
+        <td> {{ object.contact_number }} </td>
+    </tr>
+    <tr>
+        <td> Service </td>
+        <td><a href={{object.service.get_absolute_url}}> {{ object.service }} </a></td>
+    </tr>
+    <tr>
+        <td> Line Manager </td>
+        <td> {{ object.line_manager }} </td>
+    </tr>
+</table>
+{% endblock table %}

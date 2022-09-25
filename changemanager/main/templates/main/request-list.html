@@ -1,0 +1,24 @@
+{% extends "list-view.html" %}
+{% block title %}Change Requests{% endblock title%}
+{% block list-title %}All Change Requests{% endblock list-title %}
+{% block create-button %}
+    <button onclick="window.location='change/new';">New Change</button>
+{% endblock create-button %}
+{% block table-headers %}
+    <th>Title</th>
+    <th>Requestor</th>
+    <th>Approver</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th>Date Requested</th>
+    <th>Date Completed</th>
+{% endblock table-headers %}
+{% block list-content %}
+    <td><a href={{ object.get_absolute_url }}>{{ object.title }}</a></td>
+    <td><a href={{object.requestor.get_absolute_url}}>{{ object.requestor }}</a></td>
+    <td><a href={{object.requestor.get_absolute_url}}>{{ object.approver }}</a></td>
+    <td>{{ object.status }}</td>
+    <td>{{ object.priority }}</td>
+    <td>{{ object.date_requested }}</td>
+    <td>{{ object.date_completed }}</td>
+{% endblock list-content %}

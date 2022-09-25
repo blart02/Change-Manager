@@ -1,0 +1,70 @@
+{% extends 'detail-page.html' %}
+
+{% block edit-button %}
+<button onclick="window.location='{{object.id}}/edit'">Edit Change Request</button>
+{% endblock edit-button %}
+
+{% block delete-button %}
+<button href="window.location='{{object.id}}/delete">Delete Change Request</button>
+{% endblock delete-button %}
+
+{% block table %}
+<table>
+    <tr>
+        <td> Change Id </td>
+        <td> {{object.id}} </td>
+    </tr>
+    <tr>
+        <td> Description </td>
+        <td> {{object.description}} </td>
+    </tr>
+    <tr>
+        <td> Status </td>
+        <td> {{object.status}} </td>
+    </tr>
+    <tr>
+        <td> Date Requested </td>
+        <td> {{object.date_requested}} </td>
+    </tr>
+    <tr>
+        <td> Requestor </td>
+        <td> <a href={{object.requestor.get_absolute_url}}>{{object.requestor}}</a></td>
+    </tr>
+    <tr>
+        <td> Requestor Service </td>
+        <td><a href={{object.requestor.service.get_absolute_url}}>{{object.requestor.service.name}}</a></td>
+    </tr>
+    <tr>
+        <td> Approver </td>
+        <td> <a href={{object.approver.get_absolute_url}}>{{object.approver}}</a></td>
+    </tr>
+    <tr>
+        <td> Priority Level </td>
+        <td> {{object.priority}} </td>
+    </tr>
+    <tr>
+        <td> Date Completed </td>
+        <td> {{object.date_completed}} </td>
+    </tr>
+</table>
+{% endblock table %}
+
+{% block additional-content %}
+<h2>Updates</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit New Update</button>
+</form>
+{% if updates|length > 0 %}
+    <table id="updates">
+        {% for update in updates %}
+            <tr>
+                <td>{{update.text}}</td>
+            <tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h4>No updates yet</h4>
+{% endif %}
+{% endblock additional-content %} 

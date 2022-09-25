@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{% block list-title %}{% endblock list-title %}</h1>
+{% block create-button %}{% endblock create-button %}
+{% if object_list|length > 0 %}
+<table>
+    <tr>
+        {% block table-headers %}
+
+        {% endblock table-headers %}
+    </tr>
+    {% for object in object_list %}
+        <tr>
+            {% block list-content %}
+                
+            {% endblock list-content %}
+        </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <h4>No items found</h4>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ object.name }}{{ object.title }}
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ object.name }}{{ object.title }}</h1>
+    {% block edit-button %}{% endblock edit-button %}
+    <div id="delete-div" style="{% if user.groups.all.0|lower == 'admin' %}visibility: visible;{% else %}visibility: hidden;{% endif %}">
+        {% block delete-button %}{% endblock delete-button %}
+    </div>
+    {% block table %}
+
+    {% endblock table %}
+    {% block additional-content %}
+        
+    {% endblock additional-content %}
+{% endblock content %}

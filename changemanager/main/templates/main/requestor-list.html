@@ -1,0 +1,19 @@
+{% extends 'list-view.html' %}
+
+{% block title %}Requestors{% endblock title %}
+{% block list-title %}All Requestors{% endblock list-title %}
+{% block create-button %}
+<button onclick="window.location='requestor/new';">New Requestor</button>
+{% endblock create-button %}
+
+{% block table-headers %}
+<th>Name</th>
+<th>Service</th>
+<th>Is Approver</th>
+{% endblock table-headers %}
+
+{% block list-content %}
+    <td><a href={{object.get_absolute_url}}>{{object.name}}</a></td>
+    <td><a>{{object.service}}</a></td>
+    <td>{{object.is_approver_str}}</td>
+{% endblock list-content %}

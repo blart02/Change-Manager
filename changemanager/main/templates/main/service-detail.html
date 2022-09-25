@@ -1,0 +1,35 @@
+
+{% extends 'detail-page.html' %}
+
+{% block edit-button %}
+<button onclick="window.location='{{object.id}}/edit'">Edit Service</button>
+{% endblock edit-button %}
+
+{% block delete-button %}
+<button onclick="window.location='{{object.id}}/delete'">Delete Service</button>
+{% endblock delete-button %}
+
+{% block table %}
+<table>
+    <tr>
+        <td> Name </td>
+        <td> {{object.name}} </td>
+    </tr>
+    <tr>
+        <td> Business Unit </td>
+        <td> {{object.business_unit}} </td>
+    </tr>
+    <tr>
+        <td> Description </td>
+        <td> {{object.description}} </td>
+    </tr>
+    <tr>
+        <td> Main Contact Number </td>
+        <td> {{object.main_contact_number}} </td>
+    </tr>
+    <tr>
+        <td> Parent Service </td>
+        <td><a href={{object.parent_service.get_absolute_url}}> {{object.parent_service}} </a></td>
+    </tr>
+</table>
+{% endblock table %}

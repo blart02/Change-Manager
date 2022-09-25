@@ -1,0 +1,21 @@
+
+{% extends 'list-view.html' %}
+
+{% block title %}Services{% endblock title %}
+{% block list-title %}All Services{% endblock list-title %}
+
+{% block create-button %}
+<button onclick="window.location='service/new';">New Service</button>
+{% endblock create-button %}
+
+{% block table-headers %}
+    <th>Service Name</th>
+    <th>Business Unit</th>
+    <th>Parent Service</th>
+{% endblock table-headers %}
+
+{% block list-content %}
+    <td><a href={{object.get_absolute_url}}>{{object.name}}</a></td>
+    <td>{{object.business_unit}}</td>
+    <td><a href={{object.parent_service.get_absolute_url}}>{{object.parent_service}}</a></td>
+{% endblock list-content %}
