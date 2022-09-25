@@ -1,6 +1,7 @@
 Welcome to the Concern Change Management tool; a tool designed to compliment my organisation's change management processes.
 
 It is built on the Django framework, version 4.1.1.
+CSS is provided by the pico framework - https://picocss.com/
 
 The application consists of one main project, named 'changemanager', and one custom app named 'main.'
 

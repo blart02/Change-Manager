@@ -36,7 +36,10 @@
                 <li><a href="{% url 'change-list' %}">Changes</a></li>
                 <li><a href="{% url 'requestor-list' %}">Requestors</a></li>
                 <li><a href="{% url 'service-list' %}">Services</a></li>
-                <li><a onclick="if(confirm('Are you sure you want to logout?')){window.location='accounts/logout';}">Logout</a></li>
+                {% if user.groups.all.0|lower == 'admin' %}
+                    <li><a href="admin/">Admin Portal</a></li>
+                {% endif %}
+                <li><a onclick="if(confirm('Are you sure you want to logout?')){window.location='{% url 'logout' %}';}">Logout</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'signup' %}">Register</a></li>
