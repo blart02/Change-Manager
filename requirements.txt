@@ -1,0 +1,11 @@
+asgiref==3.5.2
+autopep8==1.7.0
+dj-database-url==1.0.0
+Django==4.1.1
+django-heroku==0.3.1
+gunicorn @ git+https://github.com/benoitc/gunicorn.git@0b953b803786997d633d66c0f7c7b290df75e07c
+psycopg2==2.9.3
+pycodestyle==2.9.1
+sqlparse==0.4.2
+toml==0.10.2
+whitenoise==6.2.0
