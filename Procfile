@@ -1,1 +1,1 @@
-web: gunicorn changemanager.changemanager.wsgi:app
+web: gunicorn changemanager.wsgi:app
