@@ -1,1 +1,1 @@
-web: guicorn changemanager.wsgi
+web: gunicorn changemanager.wsgi
