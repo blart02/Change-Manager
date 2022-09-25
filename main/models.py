@@ -6,7 +6,6 @@ from django.urls import reverse
 
 
 class Service (models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
 
     BUSINESS_UNIT_OPTIONS = (
@@ -31,7 +30,6 @@ class Service (models.Model):
 
 
 class Requestor (models.Model):
-    id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     is_approver = models.BooleanField()
@@ -59,7 +57,6 @@ class Requestor (models.Model):
 
 
 class ChangeRequest (models.Model):
-    id = models.IntegerField(primary_key=True)
     requestor = models.ForeignKey(
         Requestor, on_delete=models.CASCADE, related_name="requestor_changes")
     approver = models.ForeignKey(
@@ -100,8 +97,8 @@ class ChangeRequest (models.Model):
     def __str__(self):
         return self.title
 
+
 class ChangeRequestUpdate (models.Model):
-    id = models.IntegerField(primary_key=True)
     change_request = models.ForeignKey(ChangeRequest, on_delete=models.CASCADE)
     text = models.TextField()
     date_time_posted = models.DateTimeField(auto_now_add=True)
